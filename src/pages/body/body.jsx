@@ -1,0 +1,31 @@
+import "../../common/header/header.css"
+import { Routes, Route, Navigate } from "react-router-dom";
+import { Home } from "../Home/Home";
+import { Header } from "../../common/header/header";
+import { useSelector, useDispatch } from "react-redux";
+import { userData, logout } from "../../app/slices/userSlice";
+import { useEffect } from "react";
+import { About } from "../About/About";
+
+export const Body = () => {
+
+    const rdxUser = useSelector(userData);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+
+    }, [rdxUser]);
+
+    return (
+        <>
+            <div className="row-12 header-design">
+                <Header />
+            </div>
+            <Routes>
+                <Route path="*" element={<Navigate to={"/"} replace />} />
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+            </Routes>
+        </>
+    );
+};
