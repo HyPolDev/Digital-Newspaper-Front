@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { userData, logout } from "../../app/slices/userSlice";
 import { useEffect } from "react";
 import { About } from "../About/About";
+import { Login } from "../Login/Login";
 
 export const Body = () => {
 
@@ -25,6 +26,7 @@ export const Body = () => {
                 <Route path="*" element={<Navigate to={"/"} replace />} />
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
+                <Route path="/auth" element={<Login />} />
             </Routes>
         </>
     );
