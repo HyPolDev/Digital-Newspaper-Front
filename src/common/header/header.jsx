@@ -12,6 +12,8 @@ export const Header = () => {
     //Instancia de conexion a modo escritura
     const dispatch = useDispatch();
 
+    const role = rdxUser.credentials.decoded?.role
+
     useEffect(() => {
 
     }, [rdxUser]);
@@ -37,7 +39,11 @@ export const Header = () => {
             <div id="col-2"><CLink path="/" title="Secciones" /></div>
             <div id="col-2"><CLink path="/" title="Regiones" /></div>
             <div id="col-2"><CLink path="/about" title="Nosotros" /></div>
-            <div className="col-2"></div>
+
+            {console.log("REDUX CLG", rdxUser)}
+            {role == "admin" || role == "writer" || role == "superadmin" ?
+                <div id="col-2"><CLink path="/publish" title="Publica" /></div>
+                : <div className="col-2"></div>}
         </>
     );
 };

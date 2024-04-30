@@ -26,7 +26,6 @@ export const Home = () => {
 
     return (
         <>
-            {console.log(Data)}
             <div className="col-4">
                 Inicio
 
