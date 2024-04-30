@@ -3,52 +3,44 @@ import ReactQuill from "react-quill";
 import EditorToolbar, { modules, formats } from "./EditorToolbar";
 import "react-quill/dist/quill.snow.css";
 import "./Publish.css";
-import axios from 'axios';
+import { CInput } from "../../common/CInput/CInput";
 
 export const Publish = () => {
 
-    const [userInfo, setuserInfo] = useState({
+    const [postInfo, setPostInfo] = useState({
         title: '',
         description: '',
-        information: '',
+        content: ''
     });
-    const onChangeValue = (e) => {
-        setuserInfo({
-            ...userInfo,
-            [e.target.name]: e.target.value
-        });
-    }
+
+    const inputHandler = (e) => {
+        //genero la función que bindea
+
+        setPostInfo((prevState) => ({
+            ...prevState,
+            [e.target.name]: e.target.value,
+        }));
+    };
+
     const ondescription = (value) => {
-        setuserInfo({
-            ...userInfo,
-            description: value
+        setPostInfo({
+            ...postInfo,
+            content: value
         });
     }
-    const oninformation = (value) => {
-        setuserInfo({
-            ...userInfo,
-            information: value
-        });
-    }
+
+
     const [isError, setError] = useState(null);
+
     const addDetails = async (event) => {
         try {
             event.preventDefault();
             event.persist();
-            if (userInfo.description.length < 50) {
+            if (postInfo.content.length < 50) {
                 setError('Required, Add description minimum length 50 characters');
                 return;
             }
-            axios.post(`http://localhost:8080/addArticle`, {
-                title: userInfo.title,
-                description: userInfo.description,
-                information: userInfo.information,
-            })
-            // .then(res => {
-            //     if (res.data.success === true) {
-            //         history.push('/');
-            //     }
-            // })
+            console.log(postInfo);
         } catch (error) { throw error; }
     }
 
@@ -60,16 +52,19 @@ export const Publish = () => {
                         <form onSubmit={addDetails} className="update__forms">
                             <div className="form-row center">
                                 <div className="form-group col-md-12">
-                                    <label className="font-weight-bold"> Title <span className="required"> * </span> </label>
-                                    <input type="text" name="title" value={userInfo.title} onChange={onChangeValue} className="form-control" placeholder="Title" required />
+                                    <CInput
+                                        typeProp={"title"}
+                                        nameProp={"subTitle"}
+                                        handlerProp={(e) => inputHandler(e)}
+                                        placeholderProp={"Title"}
+                                    />
                                 </div>
                                 <div className="clearfix"></div>
                                 <div className="form-group col-md-12 editor group">
-                                    <label className="font-weight-bold"> Description <span className="required"> * </span> </label>
                                     <EditorToolbar toolbarId={'t1'} />
                                     <ReactQuill
                                         theme="snow"
-                                        value={userInfo.description}
+                                        value={postInfo.content}
                                         onChange={ondescription}
                                         placeholder={"Write something awesome..."}
                                         modules={modules('t1')}
