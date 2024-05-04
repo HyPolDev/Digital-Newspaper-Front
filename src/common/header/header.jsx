@@ -1,6 +1,6 @@
-
+import "./header.css"
 import { useState } from "react";
-import { CLink } from "../CLink/CLink";
+import { CLink } from "../Clink/Clink.jsx";
 import { useSelector, useDispatch } from "react-redux";
 import { userData, logout } from "../../app/slices/userSlice";
 import { updateCriteria } from "../../app/slices/searchSlice";
@@ -31,33 +31,13 @@ export const Header = () => {
     }, [criteria]);
 
     return (
-        <div className="col-4 header-design">
-
-
-            {rdxUser?.credentials?.token ? (
-                <div className="navigator-design">
-                    <div id="link"><CLink path="/" title="Home" /></div>
-                    <div id="link"><CLink path="/" title="Explore" /></div>
-                    <div id="link"><CLink path="/" title="Bookmarks" /></div>
-                    <div id="link"><CLink path="/profile" title="Profile" /></div>
-                    <div id="link"><CLink path="#" title={rdxUser?.credentials?.decoded?.userName} /></div>
-                    <div
-                        className="out-design"
-                        onClick={() => dispatch(logout({ credentials: "" }))}
-                    >
-                        log out
-                    </div>
-                    {rdxUser?.credentials.decoded?.roleName == "admin" || rdxUser?.credentials.decoded?.roleName == "superadmin" ?
-                        (<>
-                            <div id="link"><CLink path="/Profiles" title="Profiles" /></div>
-                            <div id="link"><CLink path="/Posts" title="Posts" /></div>
-                        </>) : ""}
-                </div>
-            ) : (
-                <div className="navigator-design">
-                    <CLink path="/login" title="Login" />
-                </div>
-            )}
-        </div>
+        <>
+            <div className="col-2"></div>
+            <div id="col-2"><CLink path="/" title="Inicio" /></div>
+            <div id="col-2"><CLink path="/" title="Secciones" /></div>
+            <div id="col-2"><CLink path="/" title="Regiones" /></div>
+            <div id="col-2"><CLink path="/about" title="Nosotros" /></div>
+            <div className="col-2"></div>
+        </>
     );
 };
