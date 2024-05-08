@@ -20,9 +20,7 @@ export const Body = () => {
 
     return (
         <>
-            <div className="row-12 header-design">
-                <Header />
-            </div>
+            <Header />
             <Routes>
                 <Route path="*" element={<Navigate to={"/"} replace />} />
                 <Route path="/" element={<Home />} />

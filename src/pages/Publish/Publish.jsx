@@ -4,12 +4,18 @@ import EditorToolbar, { modules, formats } from "./EditorToolbar";
 import "react-quill/dist/quill.snow.css";
 import "./Publish.css";
 import { CInput } from "../../common/CInput/CInput";
+import { createPostCall } from "../../services/apiCalls";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { userData } from "../../app/slices/userSlice";
 
 export const Publish = () => {
 
+    const navigate = useNavigate()
+
+    const rdxUser = useSelector(userData);
+
     const [postInfo, setPostInfo] = useState({
-        title: '',
-        description: '',
         content: ''
     });
 
@@ -40,8 +46,15 @@ export const Publish = () => {
                 setError('Required, Add description minimum length 50 characters');
                 return;
             }
-            console.log(postInfo);
         } catch (error) { throw error; }
+    }
+
+    const submit = async () => {
+        const response = await createPostCall(postInfo, rdxUser.credentials.token)
+        console.log(response);
+        //setTimeout(() => {
+        //  navigate("/");
+        // }, 1000);
     }
 
     return (
@@ -54,9 +67,33 @@ export const Publish = () => {
                                 <div className="form-group col-md-12">
                                     <CInput
                                         typeProp={"title"}
-                                        nameProp={"subTitle"}
+                                        nameProp={"title"}
                                         handlerProp={(e) => inputHandler(e)}
                                         placeholderProp={"Title"}
+                                    />
+                                    <CInput
+                                        typeProp={"type"}
+                                        nameProp={"type"}
+                                        handlerProp={(e) => inputHandler(e)}
+                                        placeholderProp={"Tipo"}
+                                    />
+                                    <CInput
+                                        typeProp={"subTitle"}
+                                        nameProp={"subTitle"}
+                                        handlerProp={(e) => inputHandler(e)}
+                                        placeholderProp={"Sub Title"}
+                                    />
+                                    <CInput
+                                        typeProp={"relevance"}
+                                        nameProp={"relevance"}
+                                        handlerProp={(e) => inputHandler(e)}
+                                        placeholderProp={"Relevance"}
+                                    />
+                                    <CInput
+                                        typeProp={"region"}
+                                        nameProp={"region"}
+                                        handlerProp={(e) => inputHandler(e)}
+                                        placeholderProp={"Region"}
                                     />
                                 </div>
                                 <div className="clearfix"></div>
@@ -73,7 +110,7 @@ export const Publish = () => {
                                 </div>
                                 {isError !== null && <div className="errors"> {isError} </div>}
                                 <div className="form-group col-sm-12 text-right">
-                                    <button type="submit" className="btn btn__theme"> Submit  </button>
+                                    <button type="submit" className="btn btn__theme" onClick={submit}> Submit  </button>
                                 </div>
                             </div>
                         </form>
