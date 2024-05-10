@@ -9,6 +9,7 @@ import { About } from "../About/About";
 import { Login } from "../Login/Login";
 import { Publish } from "../Publish/Publish";
 import { Details } from "../Details/Details";
+import { Footer } from "../../common/footer/footer";
 
 export const Body = () => {
 
@@ -30,6 +31,7 @@ export const Body = () => {
                 <Route path="/publish" element={<Publish />} />
                 <Route path="/post" element={<Details />} />
             </Routes>
+            <Footer />
         </>
     );
 };
