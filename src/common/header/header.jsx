@@ -40,7 +40,18 @@ export const Header = () => {
                 <div className="col-3"></div>
             </div>
             <div className="row-12 header-design">
-                <div className="col-2"></div>
+                <div className="col-2">
+                    {role ? (
+                        <div
+                            className="out-design"
+                            onClick={() => dispatch(logout({ credentials: "" }))}
+                            style={{ cursor: "pointer" }}
+                        >
+                            log out
+                        </div>
+                    ) : ""
+                    }
+                </div>
                 <div id="col-2"><CLink path="/" title="Inicio" /></div>
                 <div id="col-2"><CLink path="/" title="Secciones" /></div>
                 <div id="col-2"><CLink path="/" title="Regiones" /></div>
