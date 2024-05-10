@@ -12,6 +12,8 @@ export const Header = () => {
     //Instancia de conexion a modo escritura
     const dispatch = useDispatch();
 
+    const role = rdxUser.credentials.decoded?.role
+
     useEffect(() => {
 
     }, [rdxUser]);
@@ -32,12 +34,34 @@ export const Header = () => {
 
     return (
         <>
-            <div className="col-2"></div>
-            <div id="col-2"><CLink path="/" title="Inicio" /></div>
-            <div id="col-2"><CLink path="/" title="Secciones" /></div>
-            <div id="col-2"><CLink path="/" title="Regiones" /></div>
-            <div id="col-2"><CLink path="/about" title="Nosotros" /></div>
-            <div className="col-2"></div>
+            <div className="row-12 header-design">
+                <div className="col-3"></div>
+                <div className="col-6">hello from above</div>
+                <div className="col-3"></div>
+            </div>
+            <div className="row-12 header-design">
+                <div className="col-2">
+                    {role ? (
+                        <div
+                            className="out-design"
+                            onClick={() => dispatch(logout({ credentials: "" }))}
+                            style={{ cursor: "pointer" }}
+                        >
+                            log out
+                        </div>
+                    ) : ""
+                    }
+                </div>
+                <div id="col-2"><CLink path="/" title="Inicio" /></div>
+                <div id="col-2"><CLink path="/" title="Secciones" /></div>
+                <div id="col-2"><CLink path="/" title="Regiones" /></div>
+                <div id="col-2"><CLink path="/about" title="Nosotros" /></div>
+
+                {console.log("REDUX CLG", rdxUser)}
+                {role == "admin" || role == "writer" || role == "superadmin" ?
+                    <div id="col-2"><CLink path="/publish" title="Publica" /></div>
+                    : <div className="col-2"></div>}
+            </div>
         </>
     );
 };
