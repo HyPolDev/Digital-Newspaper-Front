@@ -52,10 +52,33 @@ export const Header = () => {
                     ) : ""
                     }
                 </div>
-                <div id="col-2"><CLink path="/" title="Inicio" /></div>
-                <div id="col-2"><CLink path="/" title="Secciones" /></div>
-                <div id="col-2"><CLink path="/" title="Regiones" /></div>
-                <div id="col-2"><CLink path="/about" title="Nosotros" /></div>
+                <div className="col-2"><CLink path="/" title="Inicio" /></div>
+
+                <div className="col-2"><div class="dropdown">
+                    <div class="dropbtn flex">
+                        <CLink path="/" title="Secciones" /> <i class="uil uil-angle-down"></i>
+                    </div>
+                    <div class="dropdown-content">
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                    </div>
+                </div>
+                </div>
+
+                <div className="col-2"><div class="dropdown">
+                    <div class="dropbtn flex">
+                        <CLink path="/" title="Regiones" /> <i class="uil uil-angle-down"></i>
+                    </div>
+                    <div class="dropdown-content">
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                    </div>
+                </div>
+                </div>
+
+                <div className="col-2"><CLink path="/about" title="Nosotros" /></div>
 
                 {console.log("REDUX CLG", rdxUser)}
                 {role == "admin" || role == "writer" || role == "superadmin" ?
