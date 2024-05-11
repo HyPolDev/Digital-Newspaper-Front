@@ -54,11 +54,11 @@ export const Header = () => {
                 </div>
                 <div className="col-2"><CLink path="/" title="Inicio" /></div>
 
-                <div className="col-2"><div class="dropdown">
-                    <div class="dropbtn flex">
-                        <CLink path="/" title="Secciones" /> <i class="uil uil-angle-down"></i>
+                <div className="col-2"><div className="dropdown">
+                    <div className="dropbtn flex">
+                        <CLink path="/" title="Secciones" /> <i className="uil uil-angle-down"></i>
                     </div>
-                    <div class="dropdown-content">
+                    <div className="dropdown-content">
                         <a href="#">Link 1</a>
                         <a href="#">Link 2</a>
                         <a href="#">Link 3</a>
@@ -66,11 +66,11 @@ export const Header = () => {
                 </div>
                 </div>
 
-                <div className="col-2"><div class="dropdown">
-                    <div class="dropbtn flex">
-                        <CLink path="/" title="Regiones" /> <i class="uil uil-angle-down"></i>
+                <div className="col-2"><div className="dropdown">
+                    <div className="dropbtn flex">
+                        <CLink path="/" title="Regiones" /> <i className="uil uil-angle-down"></i>
                     </div>
-                    <div class="dropdown-content">
+                    <div className="dropdown-content">
                         <a href="#">Link 1</a>
                         <a href="#">Link 2</a>
                         <a href="#">Link 3</a>
