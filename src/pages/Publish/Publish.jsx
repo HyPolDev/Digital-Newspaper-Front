@@ -64,31 +64,35 @@ export const Publish = () => {
                     <div className="row margintop">
                         <form onSubmit={addDetails} className="update__forms">
                             <div className="form-row center">
-                                <div className="form-group col-md-12">
+                                <div className="form-group col-md-12 center">
                                     <CInput
                                         typeProp={"title"}
                                         nameProp={"title"}
                                         handlerProp={(e) => inputHandler(e)}
                                         placeholderProp={"Title"}
                                     />
+                                    <br />
                                     <CInput
                                         typeProp={"type"}
                                         nameProp={"type"}
                                         handlerProp={(e) => inputHandler(e)}
                                         placeholderProp={"Tipo"}
                                     />
+                                    <br />
                                     <CInput
                                         typeProp={"subTitle"}
                                         nameProp={"subTitle"}
                                         handlerProp={(e) => inputHandler(e)}
                                         placeholderProp={"Sub Title"}
                                     />
+                                    <br />
                                     <CInput
                                         typeProp={"relevance"}
                                         nameProp={"relevance"}
                                         handlerProp={(e) => inputHandler(e)}
                                         placeholderProp={"Relevance"}
                                     />
+                                    <br />
                                     <CInput
                                         typeProp={"region"}
                                         nameProp={"region"}

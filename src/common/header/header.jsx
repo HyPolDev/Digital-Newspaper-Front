@@ -7,9 +7,8 @@ import { updateCriteria } from "../../app/slices/searchSlice";
 import { useEffect } from "react";
 
 export const Header = () => {
-    //Instancia de conexion a modo lectura
+
     const rdxUser = useSelector(userData);
-    //Instancia de conexion a modo escritura
     const dispatch = useDispatch();
 
     const role = rdxUser.credentials.decoded?.role
@@ -18,28 +17,32 @@ export const Header = () => {
 
     }, [rdxUser]);
 
-    const [criteria, setCriteria] = useState("");
-
-    const searchHandler = (e) => {
-        setCriteria(e.target.value);
-    };
-
-    useEffect(() => {
-        const searching = setTimeout(() => {
-            dispatch(updateCriteria(criteria));
-        }, 375);
-
-        return () => clearTimeout(searching);
-    }, [criteria]);
-
     return (
         <>
             <div className="row-12 header-design">
-                <div className="col-3"></div>
-                <div className="col-6">hello from above</div>
-                <div className="col-3"></div>
+                <div className="col-3 mt-2 ">
+                    <row-12>
+                        <col-2 ><i className="uil uil-instagram"></i></col-2>
+                        <col-2 ><i className="uil uil-google-hangouts"></i></col-2>
+                        <col-2 ><i className="uil uil-whatsapp"></i></col-2>
+                        <col-2 ><i className="uil uil-telegram"></i></col-2>
+                        <col-2 ><i className="uil uil-twitter"></i></col-2>
+                        <col-2 ><i className="uil uil-youtube"></i></col-2>
+                    </row-12>
+                </div>
+                <div className="col-6">
+                    <div className="row-6 title">
+                        <div className="col-2">
+                            <img src="../../../public/ico.svg" alt="" className="ico" />
+                        </div>
+                        <div className="col-4 head">
+                            DE PODER <br /> <div className="second-line"> EQUILIBRIO</div>
+                        </div>
+                    </div>
+                </div>
+                <div className="col-3 left-col"></div>
             </div>
-            <div className="row-12 header-design">
+            <div className="row-12 header-design header">
                 <div className="col-2">
                     {role ? (
                         <div

@@ -1,8 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Germania+One&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 .header-design {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+}
+
+.header {
+    border-bottom: 1px solid rgb(213, 213, 213);
+    padding-top: 2em;
+    padding-bottom: 1em;
 }
 
 .flex {
@@ -44,4 +52,44 @@
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
     display: block;
+}
+
+.ico {
+
+    height: 4em;
+    width: auto;
+    user-select: none;
+    border-radius: 50%;
+    -webkit-box-shadow: 0px 0px 15px 1px #0037ff;
+    box-shadow: 0px 0px 10px 0px #0037ff;
+}
+
+.title {
+    display: flex;
+    margin-top: 2.4em;
+    align-items: center;
+    justify-content: flex-end;
+    user-select: none;
+}
+
+.head {
+    margin-left: 0.4em;
+    font-weight: 1000;
+    font-family: "Germania One", system-ui;
+    font-size: 2rem;
+}
+
+.second-line {
+    margin-top: -2.7em;
+}
+
+.left-col {
+    max-width: 30vw;
+    min-width: none;
+    width: 10em;
+}
+
+.mt-2 {
+    margin-top: 1.5em;
+    cursor: pointer;
 }
