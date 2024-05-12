@@ -27,7 +27,9 @@ export const Footer = () => {
                         Este diario es un sitio web enfocado en examinar y entender la política global. Nos adentramos en temas como enfrentamientos, negociaciones comerciales, procesos electorales, manifestaciones y otros eventos relevantes en el panorama internacional.
                     </p>
                 </div>
-                <div id="col-2"><CLink path="/auth" title="Eres escritor de este periodico?" /></div>
+                {
+                    !role ? <div id="col-2"><CLink path="/auth" title="Eres escritor de este periodico?" /></div> : ""
+                }
             </div>
         </>
     );
