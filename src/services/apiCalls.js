@@ -112,4 +112,25 @@ export const createPostCall = async (params, token) => {
     } catch (error) {
         return error;
     }
-} 
+}
+
+export const getPost = async (id) => {
+    const options = {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    };
+    try {
+        const response = await fetch(`${root}/posts/${id}`, options);
+
+        const data = await response.json();
+
+        if (!data.success) {
+            throw new Error(data.message)
+        }
+        return data
+    } catch (error) {
+        return error
+    }
+}

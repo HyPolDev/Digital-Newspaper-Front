@@ -1,0 +1,14 @@
+.home-body {
+    width: 100vw;
+    display: flex;
+}
+
+.home-content {
+    max-width: 75vw;
+}
+
+.sidebar {
+    max-width: 10vw;
+    min-width: 0;
+    width: 30vw;
+}

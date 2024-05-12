@@ -29,7 +29,7 @@ export const Body = () => {
                 <Route path="/about" element={<About />} />
                 <Route path="/auth" element={<Login />} />
                 <Route path="/publish" element={<Publish />} />
-                <Route path="/post" element={<Details />} />
+                <Route path="/post/:id" element={<Details />} />
             </Routes>
             <Footer />
         </>

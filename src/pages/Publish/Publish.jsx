@@ -62,13 +62,18 @@ export const Publish = () => {
             relevance: localStorage.getItem('relevance'),
 
         }));
-        console.log(postInfo);
+        console.log(postInfo)
 
-        //const response = await createPostCall(postInfo, rdxUser.credentials.token)
-        //console.log(response);
-        //setTimeout(() => {
-        //    navigate("/");
-        //}, 1000);
+        const response = await createPostCall(postInfo, rdxUser.credentials.token)
+        console.log(response);
+        if (response?.success) {
+            setTimeout(() => {
+                navigate("/");
+            }, 1000);
+        } else {
+            console.log("couldnt create post");
+        }
+
     }
 
     return (
