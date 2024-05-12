@@ -8,6 +8,7 @@ import { createPostCall } from "../../services/apiCalls";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { userData } from "../../app/slices/userSlice";
+import { RegionSelector } from "../../common/RegionSelector/RegionSelector";
 
 export const Publish = () => {
 
@@ -26,6 +27,7 @@ export const Publish = () => {
             ...prevState,
             [e.target.name]: e.target.value,
         }));
+
     };
 
     const ondescription = (value) => {
@@ -50,11 +52,18 @@ export const Publish = () => {
     }
 
     const submit = async () => {
-        const response = await createPostCall(postInfo, rdxUser.credentials.token)
-        console.log(response);
-        setTimeout(() => {
-            navigate("/");
-        }, 1000);
+
+        setPostInfo((prevState) => ({
+            ...prevState,
+            region: localStorage.getItem('region')
+        }));
+        console.log(postInfo);
+
+        //const response = await createPostCall(postInfo, rdxUser.credentials.token)
+        //console.log(response);
+        //setTimeout(() => {
+        //    navigate("/");
+        //}, 1000);
     }
 
     return (
@@ -93,12 +102,9 @@ export const Publish = () => {
                                         placeholderProp={"Relevance"}
                                     />
                                     <br />
-                                    <CInput
-                                        typeProp={"region"}
-                                        nameProp={"region"}
-                                        handlerProp={(e) => inputHandler(e)}
-                                        placeholderProp={"Region"}
-                                    />
+
+                                    <RegionSelector />
+
                                 </div>
                                 <div className="clearfix"></div>
                                 <div className="form-group col-md-12 editor group">

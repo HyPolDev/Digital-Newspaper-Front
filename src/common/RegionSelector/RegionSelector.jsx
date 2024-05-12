@@ -7,7 +7,7 @@ export const RegionSelector = () => {
     const [SelectedRegion, setSelectedRegion] = useState('');
 
     useEffect(() => {
-        const storedSelection = localStorage.getItem('SelectedRegion');
+        const storedSelection = localStorage.getItem('region');
         if (storedSelection) {
             setSelectedRegion(storedSelection);
         }
@@ -31,7 +31,6 @@ export const RegionSelector = () => {
                     </option>
                 ))}
             </select>
-            {SelectedRegion && <p>Has seleccionado: {SelectedRegion}</p>}
         </div>
     );
 };
