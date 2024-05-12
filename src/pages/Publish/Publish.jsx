@@ -10,6 +10,7 @@ import { useSelector } from "react-redux";
 import { userData } from "../../app/slices/userSlice";
 import { RegionSelector } from "../../common/RegionSelector/RegionSelector";
 import { TypeSelector } from "../../common/TypeSelector/TypeSelector";
+import { RelevanceSelector } from "../../common/RelevanceSelector/RelevanceSelector";
 
 export const Publish = () => {
 
@@ -57,7 +58,9 @@ export const Publish = () => {
         setPostInfo((prevState) => ({
             ...prevState,
             region: localStorage.getItem('region'),
-            type: localStorage.getItem('type')
+            type: localStorage.getItem('type'),
+            relevance: localStorage.getItem('relevance'),
+
         }));
         console.log(postInfo);
 
@@ -83,10 +86,6 @@ export const Publish = () => {
                                         placeholderProp={"Title"}
                                     />
                                     <br />
-
-                                    <TypeSelector />
-
-                                    <br />
                                     <CInput
                                         typeProp={"subTitle"}
                                         nameProp={"subTitle"}
@@ -94,12 +93,13 @@ export const Publish = () => {
                                         placeholderProp={"Sub Title"}
                                     />
                                     <br />
-                                    <CInput
-                                        typeProp={"relevance"}
-                                        nameProp={"relevance"}
-                                        handlerProp={(e) => inputHandler(e)}
-                                        placeholderProp={"Relevance"}
-                                    />
+
+                                    <TypeSelector />
+
+                                    <br />
+
+                                    <RelevanceSelector />
+
                                     <br />
 
                                     <RegionSelector />
