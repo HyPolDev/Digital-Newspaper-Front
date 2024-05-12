@@ -5,11 +5,14 @@ import { useSelector, useDispatch } from "react-redux";
 import { userData, logout } from "../../app/slices/userSlice";
 import { updateCriteria } from "../../app/slices/searchSlice";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const Header = () => {
 
     const rdxUser = useSelector(userData);
     const dispatch = useDispatch();
+
+    const navigate = useNavigate()
 
     const role = rdxUser.credentials.decoded?.role
 
@@ -47,7 +50,12 @@ export const Header = () => {
                     {role ? (
                         <div
                             className="out-design"
-                            onClick={() => dispatch(logout({ credentials: "" }))}
+                            onClick={() => {
+                                dispatch(logout({ credentials: "" }))
+                                setTimeout(() => {
+                                    navigate("/")
+                                }, 500)
+                            }}
                             style={{ cursor: "pointer" }}
                         >
                             log out

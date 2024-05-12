@@ -52,9 +52,9 @@ export const Publish = () => {
     const submit = async () => {
         const response = await createPostCall(postInfo, rdxUser.credentials.token)
         console.log(response);
-        //setTimeout(() => {
-        //  navigate("/");
-        // }, 1000);
+        setTimeout(() => {
+            navigate("/");
+        }, 1000);
     }
 
     return (
