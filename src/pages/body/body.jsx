@@ -7,6 +7,9 @@ import { userData, logout } from "../../app/slices/userSlice";
 import { useEffect } from "react";
 import { About } from "../About/About";
 import { Login } from "../Login/Login";
+import { Publish } from "../Publish/Publish";
+import { Details } from "../Details/Details";
+import { Footer } from "../../common/footer/footer";
 
 export const Body = () => {
 
@@ -19,15 +22,16 @@ export const Body = () => {
 
     return (
         <>
-            <div className="row-12 header-design">
-                <Header />
-            </div>
+            <Header />
             <Routes>
                 <Route path="*" element={<Navigate to={"/"} replace />} />
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/auth" element={<Login />} />
+                <Route path="/publish" element={<Publish />} />
+                <Route path="/post/:id" element={<Details />} />
             </Routes>
+            <Footer />
         </>
     );
 };

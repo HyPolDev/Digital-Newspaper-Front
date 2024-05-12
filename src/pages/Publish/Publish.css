@@ -1,0 +1,19 @@
+.group {
+    position: relative;
+    display: inline-table !important;
+    margin: 0;
+    padding: 0;
+    width: auto !important;
+    margin-top: 1em;
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.margintop {
+    margin-top: 3em;
+}
