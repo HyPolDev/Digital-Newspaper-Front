@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { userData } from "../../app/slices/userSlice";
 import { RegionSelector } from "../../common/RegionSelector/RegionSelector";
+import { TypeSelector } from "../../common/TypeSelector/TypeSelector";
 
 export const Publish = () => {
 
@@ -55,7 +56,8 @@ export const Publish = () => {
 
         setPostInfo((prevState) => ({
             ...prevState,
-            region: localStorage.getItem('region')
+            region: localStorage.getItem('region'),
+            type: localStorage.getItem('type')
         }));
         console.log(postInfo);
 
@@ -81,12 +83,9 @@ export const Publish = () => {
                                         placeholderProp={"Title"}
                                     />
                                     <br />
-                                    <CInput
-                                        typeProp={"type"}
-                                        nameProp={"type"}
-                                        handlerProp={(e) => inputHandler(e)}
-                                        placeholderProp={"Tipo"}
-                                    />
+
+                                    <TypeSelector />
+
                                     <br />
                                     <CInput
                                         typeProp={"subTitle"}
