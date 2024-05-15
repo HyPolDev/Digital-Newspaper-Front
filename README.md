@@ -1,7 +1,10 @@
 # Newspaper React React FrontEnd
   Welcome you all to my final project at Geekhubs, this is the front end of a very simple and efective newspaper focused on writer experience and usability. It reaches the prestated MVP however it can be easily upgraded in many ways.
 
-
+<img src="./public/Captura de pantalla 2024-05-15 113756.png" alt="GitHub" />
+<img src="./public/Captura de pantalla 2024-05-15 112040.png" alt="GitHub" />
+<img src="./public/Captura de pantalla 2024-05-15 113931.png" alt="GitHub" />
+<img src="./public/Captura de pantalla 2024-05-15 113448.png" alt="GitHub" />
 
 ## 🛠️ Tech&Tolls used 
 
