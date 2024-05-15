@@ -4,11 +4,11 @@
 }
 
 .home-content {
-    max-width: 75vw;
+    width: 70vw;
 }
 
 .sidebar {
-    max-width: 10vw;
+    max-width: 15vw;
     min-width: 0;
     width: 30vw;
 }
