@@ -31,11 +31,11 @@ export const Home = () => {
             <div className="row-12 home-body">
                 <div className="col-3 sidebar"></div>
                 <div className="col-6 home-content">
-                    <row-12>
-                        <col-9 front-page>
+                    <div className="row-12" style={{ display: "flex" }}>
+                        <div className="col-9 front-page">
                             {Data?.posts?.length > 0 && <PostFrontPage post={Data.posts[0]} />}
-                        </col-9>
-                        <col-5>
+                        </div>
+                        <div className="col-5">
                             {
                                 Data?.posts?.slice(1, 5).map((item) => {
                                     return (
@@ -46,11 +46,14 @@ export const Home = () => {
                                     )
                                 })
                             }
-                        </col-5>
-                    </row-12>
+                        </div>
+                        <div className="row-12">
+                        </div>
+                        <div className="col-3 sidebar"></div>
+                    </div>
                 </div>
-                <div className="col-3 sidebar"></div>
             </div>
+
         </>
     )
 }

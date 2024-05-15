@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-
+import "./PostFrontPage.css"
 export const PostFrontPage = ({ post }) => {
 
     const navigate = useNavigate()
@@ -27,8 +27,10 @@ export const PostFrontPage = ({ post }) => {
 
     return (
         <>
-            <div className="row-12" onClick={navigatePost}>
-                <img src={imgSrc} alt="" />
+
+
+            <div className="row-12 front-post" onClick={navigatePost} style={{ backgroundImage: `url(${imgSrc})` }}>
+
                 {post.title}
             </div>
         </>

@@ -1,0 +1,13 @@
+.front-post {
+    display: flex;
+    width: 50vw;
+    height: 35rem;
+    background-repeat: no-repeat;
+    background-size: contain;
+    color: white;
+    flex-direction: column;
+    justify-content: flex-end;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: xx-large;
+    cursor: pointer;
+}
