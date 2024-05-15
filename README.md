@@ -12,7 +12,8 @@
 2.  Run ` $ npm install ` in terminal
 3.  Run and connect your mongooseDB
 4.  Clone install and run the server available at: [Here](https://github.com/HyPolDev/Digital-Newspaper-Back)
-5.  Start server:  ` $ npm run dev `
+5.  Run seeder:  ` $ npm run seeds `
+6.  Start server:  ` $ npm run dev `
 
 ## ✒️ Autor
 
