@@ -22,7 +22,7 @@
 
 ## 🎓 Special Thanks
 
-- To **Geekshubs Academy** for the trust, encouragement and knowledges to make me able to develop this first project.
+- To **Geekshubs Academy** for the trust, encouragement and knowledges to make me able to develop this last project.
 
 
 ## 📄 Add Ons - Bugs and Dreams
