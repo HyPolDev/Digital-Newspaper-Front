@@ -33,9 +33,9 @@ export const Home = () => {
                 <div className="col-6 home-content">
                     <div className="row-12" style={{ display: "flex" }}>
                         <div className="col-9 front-page">
-                            {Data?.posts?.length > 0 && <PostFrontPage post={Data.posts[0]} />}
+                            {Data?.posts?.length > 0 && <PostFrontPage post={Data.posts[Data.posts.length - 1]} />}
                         </div>
-                        <div className="col-5">
+                        <div className="col-5" style={{ marginLeft: "-3em", width: "30rem" }} >
                             {
                                 Data?.posts?.slice(1, 5).map((item) => {
                                     return (

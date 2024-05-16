@@ -12,7 +12,7 @@ export const PostPreview = ({ post }) => {
 
     return (
         <>
-            <div className="row-12" onClick={navigatePost}>
+            <div className="row-12" onClick={navigatePost} style={{ width: "18rem", marginBottom: "1em", marginTop: "2em" }}>
                 {post.title}
             </div>
         </>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getPost } from "../../services/apiCalls";
-
+import "./Details.css"
 
 export const Details = () => {
 
@@ -25,6 +25,6 @@ export const Details = () => {
     };
 
     return (
-        <div dangerouslySetInnerHTML={createMarkup(data?.post?.content)} />
+        <div dangerouslySetInnerHTML={createMarkup(data?.post?.content)} className="details" />
     );
 }
