@@ -6,7 +6,6 @@ export const PostFrontPage = ({ post }) => {
 
     const navigatePost = () => {
         const postObj = JSON.stringify(post)
-        localStorage.setItem("post", postObj)
         navigate(`/post/${post._id}`)
     }
 
