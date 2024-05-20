@@ -75,9 +75,9 @@ export const Header = () => {
                         <CLink path="/" title="Secciones" /> <i className="uil uil-angle-down"></i>
                     </div>
                     <div className="dropdown-content">
-                        <a href="#">Link 1</a>
-                        <a href="#">Link 2</a>
-                        <a href="#">Link 3</a>
+                        <a href="#">Analisys</a>
+                        <a href="#">Noticias</a>
+                        <a href="#">Entrevistas</a>
                     </div>
                 </div>
                 </div>
@@ -87,9 +87,11 @@ export const Header = () => {
                         <CLink path="/" title="Regiones" /> <i className="uil uil-angle-down"></i>
                     </div>
                     <div className="dropdown-content">
-                        <a href="#">Link 1</a>
-                        <a href="#">Link 2</a>
-                        <a href="#">Link 3</a>
+                        <a href="#">America</a>
+                        <a href="#">Europa</a>
+                        <a href="#">Asia</a>
+                        <a href="#">Oriente Proximo</a>
+                        <a href="#">Africa</a>
                     </div>
                 </div>
                 </div>
