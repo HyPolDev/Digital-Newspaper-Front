@@ -10,6 +10,7 @@ import { Login } from "../Login/Login";
 import { Publish } from "../Publish/Publish";
 import { Details } from "../Details/Details";
 import { Footer } from "../../common/footer/footer";
+import { Profile } from "../Profile/Profile";
 
 export const Body = () => {
 
@@ -30,6 +31,7 @@ export const Body = () => {
                 <Route path="/auth" element={<Login />} />
                 <Route path="/publish" element={<Publish />} />
                 <Route path="/post/:id" element={<Details />} />
+                <Route path="/profile" element={<Profile />} />
             </Routes>
             <Footer />
         </>

@@ -48,18 +48,23 @@ export const Header = () => {
             <div className="row-12 header-design header">
                 <div className="col-2">
                     {role ? (
-                        <div
-                            className="out-design"
-                            onClick={() => {
-                                dispatch(logout({ credentials: "" }))
-                                setTimeout(() => {
-                                    navigate("/")
-                                }, 500)
-                            }}
-                            style={{ cursor: "pointer" }}
-                        >
-                            log out
-                        </div>
+                        <>
+                            <div className="col-2"><div className="dropdown">
+                                <div className="dropbtn flex">
+                                    {rdxUser.credentials.decoded.realName} <i className="uil uil-angle-down"></i>
+                                </div>
+                                <div className="dropdown-content">
+                                    <a href="#"><CLink path="/profile" title="Profile" /></a>
+                                    <a href="#" onClick={() => {
+                                        dispatch(logout({ credentials: "" }))
+                                        setTimeout(() => {
+                                            navigate("/")
+                                        }, 500)
+                                    }} >Log out</a>
+                                </div>
+                            </div>
+                            </div>
+                        </>
                     ) : ""
                     }
                 </div>
