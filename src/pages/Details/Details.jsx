@@ -54,7 +54,7 @@ export const Details = () => {
         <>
             <div>{data?.post?.title}</div>
             <div dangerouslySetInnerHTML={createMarkup(data?.post?.content)} className="details" />
-            {role ? (
+            {role == "admin" || role == "writer" || role == "superadmin" ? (
                 <div className="col-2" style={{ position: "relative", left: "50vw", display: "inline-block" }}><div className="dropdown">
                     <div className="dropbtn flex">
                         <i className="uil uil-bars"></i>

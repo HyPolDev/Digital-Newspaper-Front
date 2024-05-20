@@ -65,7 +65,12 @@ export const Profile = () => {
                         </div>
                         <div className="dropdown-content">
                             <a href="#" onClick={toggleEdit}>Edit Profile</a>
-                            <a href="#">Eliminate Account</a>
+                            <a href="#" onClick={() => {
+                                dispatch(logout({ credentials: "" }))
+                                setTimeout(() => {
+                                    navigate("/")
+                                }, 500)
+                            }}>Eliminate Account</a>
                         </div>
                     </div>
                     </div>
@@ -75,6 +80,7 @@ export const Profile = () => {
                         <br />
                         <input type="text" name="realName" placeholder="Real Name" onChange={(e) => inputHandler(e)} />
                         <br />
+                        <div>Re log in to see the changes</div>
                         <button onClick={submitEdit}>Submit</button>
                     </div>
                 </div>
