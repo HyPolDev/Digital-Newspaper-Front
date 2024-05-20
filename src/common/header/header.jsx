@@ -48,18 +48,23 @@ export const Header = () => {
             <div className="row-12 header-design header">
                 <div className="col-2">
                     {role ? (
-                        <div
-                            className="out-design"
-                            onClick={() => {
-                                dispatch(logout({ credentials: "" }))
-                                setTimeout(() => {
-                                    navigate("/")
-                                }, 500)
-                            }}
-                            style={{ cursor: "pointer" }}
-                        >
-                            log out
-                        </div>
+                        <>
+                            <div className="col-2"><div className="dropdown">
+                                <div className="dropbtn flex">
+                                    {rdxUser.credentials.decoded.realName} <i className="uil uil-angle-down"></i>
+                                </div>
+                                <div className="dropdown-content">
+                                    <a href="#"><CLink path="/profile" title="Profile" /></a>
+                                    <a href="#" onClick={() => {
+                                        dispatch(logout({ credentials: "" }))
+                                        setTimeout(() => {
+                                            navigate("/")
+                                        }, 500)
+                                    }} >Log out</a>
+                                </div>
+                            </div>
+                            </div>
+                        </>
                     ) : ""
                     }
                 </div>
@@ -70,9 +75,9 @@ export const Header = () => {
                         <CLink path="/" title="Secciones" /> <i className="uil uil-angle-down"></i>
                     </div>
                     <div className="dropdown-content">
-                        <a href="#">Link 1</a>
-                        <a href="#">Link 2</a>
-                        <a href="#">Link 3</a>
+                        <a href="#">Analisys</a>
+                        <a href="#">Noticias</a>
+                        <a href="#">Entrevistas</a>
                     </div>
                 </div>
                 </div>
@@ -82,16 +87,18 @@ export const Header = () => {
                         <CLink path="/" title="Regiones" /> <i className="uil uil-angle-down"></i>
                     </div>
                     <div className="dropdown-content">
-                        <a href="#">Link 1</a>
-                        <a href="#">Link 2</a>
-                        <a href="#">Link 3</a>
+                        <a href="#">America</a>
+                        <a href="#">Europa</a>
+                        <a href="#">Asia</a>
+                        <a href="#">Oriente Proximo</a>
+                        <a href="#">Africa</a>
                     </div>
                 </div>
                 </div>
 
                 <div className="col-2"><CLink path="/about" title="Nosotros" /></div>
 
-                {console.log("REDUX CLG", rdxUser)}
+
                 {role == "admin" || role == "writer" || role == "superadmin" ?
                     <div id="col-2"><CLink path="/publish" title="Publica" /></div>
                     : <div className="col-2"></div>}

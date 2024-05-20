@@ -134,3 +134,49 @@ export const getPost = async (id) => {
         return error
     }
 }
+
+export const deletePost = async (id, token) => {
+    const options = {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`
+        }
+    };
+    try {
+        const response = await fetch(`${root}/posts/${id}`, options);
+
+        const data = await response.json();
+
+        if (!data.success) {
+            throw new Error(data.message)
+        }
+        return data
+    } catch (error) {
+        return error
+    }
+}
+
+export const editProfileCall = async (token, userName, body) => {
+    const options = {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify(body)
+    }
+    try {
+        console.log(body);
+        const response = await fetch(`${root}/users/${userName}`, options);
+
+        const data = await response.json();
+
+        if (!data.success) {
+            throw new Error(data.message)
+        }
+        return data
+    } catch (error) {
+        return error
+    }
+}

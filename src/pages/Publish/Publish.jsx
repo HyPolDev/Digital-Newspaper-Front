@@ -19,7 +19,7 @@ export const Publish = () => {
     const rdxUser = useSelector(userData);
 
     const [postInfo, setPostInfo] = useState({
-        content: ''
+        content: localStorage.getItem("content")
     });
 
     const inputHandler = (e) => {
