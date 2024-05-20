@@ -39,6 +39,6 @@
 #### Bugs 
 
 At the time of release:
--  Edit post works a bit buggy
+-  Post seeders are NOT complete, they lack images
   
 
