@@ -91,7 +91,7 @@ export const Header = () => {
 
                 <div className="col-2"><CLink path="/about" title="Nosotros" /></div>
 
-                {console.log("REDUX CLG", rdxUser)}
+
                 {role == "admin" || role == "writer" || role == "superadmin" ?
                     <div id="col-2"><CLink path="/publish" title="Publica" /></div>
                     : <div className="col-2"></div>}
