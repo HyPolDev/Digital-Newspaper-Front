@@ -41,6 +41,15 @@ export const Details = () => {
         }, 500)
     }
 
+    const navigateEdit = async () => {
+
+        localStorage.setItem("content", data.post.content)
+
+        setTimeout(() => {
+            navigate("/publish")
+        }, 500)
+    }
+
     return (
         <>
             <div>{data?.post?.title}</div>
@@ -52,6 +61,7 @@ export const Details = () => {
                     </div>
                     <div className="dropdown-content">
                         <a href="#" onClick={deletePostFunct}>Eliminar noticia</a>
+                        <a href="#" onClick={navigateEdit}>Editar noticia</a>
                     </div>
                 </div>
                 </div>
