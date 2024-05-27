@@ -5,6 +5,8 @@
 <img src="./public/Captura de pantalla 2024-05-15 112040.png" alt="GitHub" />
 <img src="./public/Captura de pantalla 2024-05-15 113931.png" alt="GitHub" />
 <img src="./public/Captura de pantalla 2024-05-15 113448.png" alt="GitHub" />
+<img src="./public/Captura de pantalla 2024-05-27 095458.png" alt="GitHub" />
+<img src="./public/Captura de pantalla 2024-05-27 095659.png" alt="GitHub" />
 
 ## 🛠️ Tech&Tolls used 
 

@@ -11,6 +11,8 @@ import { Publish } from "../Publish/Publish";
 import { Details } from "../Details/Details";
 import { Footer } from "../../common/footer/footer";
 import { Profile } from "../Profile/Profile";
+import { AdminPanel } from "../AdminPanel/AdminPanel";
+import { PostTypesPanel } from "../PostTypesPanel/PostTypesPanel";
 
 export const Body = () => {
 
@@ -30,8 +32,10 @@ export const Body = () => {
                 <Route path="/about" element={<About />} />
                 <Route path="/auth" element={<Login />} />
                 <Route path="/publish" element={<Publish />} />
+                <Route path="/post/types" element={<PostTypesPanel />} />
                 <Route path="/post/:id" element={<Details />} />
                 <Route path="/profile" element={<Profile />} />
+                <Route path="/adminpanel" element={<AdminPanel />} />
             </Routes>
             <Footer />
         </>

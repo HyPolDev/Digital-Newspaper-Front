@@ -6,6 +6,7 @@ import { userData, logout } from "../../app/slices/userSlice";
 import { updateCriteria } from "../../app/slices/searchSlice";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { getPostTypesCall } from "../../services/apiCalls.js";
 
 export const Header = () => {
 
@@ -16,10 +17,22 @@ export const Header = () => {
 
     const role = rdxUser.credentials.decoded?.role
 
+    const [Data, setData] = useState(null)
+
     useEffect(() => {
 
-    }, [rdxUser]);
+        const fetchData = async () => {
+            const PostTypes = await getPostTypesCall()
 
+            setData({
+                postTypes: PostTypes.posts
+            })
+
+        }
+        fetchData()
+    }, [])
+
+    Data?.postTypes?.map(str => str.name.charAt(0).toUpperCase() + str.name.slice(1));
     return (
         <>
             <div className="row-12 header-design">
@@ -61,6 +74,11 @@ export const Header = () => {
                                             navigate("/")
                                         }, 500)
                                     }} >Log out</a>
+                                    {role == "admin" || role == "superadmin" ?
+                                        <>
+                                            <a href="#"><CLink path="/adminpanel" title="Admin Panel" /></a>
+                                            <a href="#"><CLink path="/post/types" title="Post Types" /></a>
+                                        </> : ""}
                                 </div>
                             </div>
                             </div>
@@ -75,9 +93,9 @@ export const Header = () => {
                         <CLink path="/" title="Secciones" /> <i className="uil uil-angle-down"></i>
                     </div>
                     <div className="dropdown-content">
-                        <a href="#">Analisys</a>
-                        <a href="#">Noticias</a>
-                        <a href="#">Entrevistas</a>
+                        {Data?.postTypes?.map((item) => {
+                            return <a href="#" key={item._id}>{item.name}</a>
+                        })}
                     </div>
                 </div>
                 </div>
