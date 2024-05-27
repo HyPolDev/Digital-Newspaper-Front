@@ -225,12 +225,11 @@ export const deleteProfileCall = async (token, userName) => {
     }
 }
 
-export const getPostTypesCall = async (token) => {
+export const getPostTypesCall = async () => {
     const options = {
         method: "GET",
         headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`
+            "Content-Type": "application/json"
         }
     }
     try {
