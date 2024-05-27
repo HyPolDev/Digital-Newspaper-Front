@@ -37,7 +37,7 @@ export const Home = () => {
                         </div>
                         <div className="col-5" style={{ marginLeft: "-3em", width: "30rem" }} >
                             {
-                                Data?.posts?.slice(1, 5).map((item) => {
+                                Data?.posts?.slice(1, 7).map((item) => {
                                     return (
                                         <PostPreview
                                             key={item._id}

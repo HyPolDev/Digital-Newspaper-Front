@@ -1,11 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
 import "./Profile.css"
-import { userData } from "../../app/slices/userSlice";
+import { logout, userData } from "../../app/slices/userSlice";
 import { useEffect, useState } from "react";
-import { editProfileCall } from "../../services/apiCalls";
+import { deleteProfileCall, editProfileCall } from "../../services/apiCalls";
 import { useNavigate } from "react-router-dom";
 
 export const Profile = () => {
+
+
 
     const navigate = useNavigate()
 
@@ -37,6 +39,8 @@ export const Profile = () => {
     const rdxUser = useSelector(userData);
     const dispatch = useDispatch();
 
+    const token = rdxUser.credentials.token
+
     const toggleEdit = () => {
         form.style.visibility == "hidden" ?
             (form.style.visibility = "visible",
@@ -46,11 +50,26 @@ export const Profile = () => {
     }
 
     const submitEdit = async () => {
-        const response = await editProfileCall(rdxUser.credentials.token, rdxUser.credentials.decoded.userName, profileEdited)
+        const response = await editProfileCall(token, rdxUser.credentials.decoded.userName, profileEdited)
 
         setTimeout(() => {
             navigate("/");
         }, 1000)
+    }
+
+    const deleteProfile = async () => {
+        const response = await deleteProfileCall(token, rdxUser.credentials.decoded.userName)
+
+        if (response.success) {
+            dispatch(logout({ credentials: "" }))
+            setTimeout(() => {
+                navigate("/home");
+            }, 500)
+        }
+        else {
+            const div = document.getElementById("error")
+            div.innerHTML = "Cound not delete account please try later"
+        }
     }
 
     return (
@@ -65,11 +84,19 @@ export const Profile = () => {
                         </div>
                         <div className="dropdown-content">
                             <a href="#" onClick={toggleEdit}>Edit Profile</a>
-                            <a href="#" onClick={() => {
-                                dispatch(logout({ credentials: "" }))
-                                setTimeout(() => {
-                                    navigate("/")
-                                }, 500)
+                            <a href="#" onClick={async () => {
+                                const response = await deleteProfileCall(token, rdxUser.credentials.decoded.userName)
+
+                                if (response.success) {
+                                    setTimeout(() => {
+                                        dispatch(logout({ credentials: "" }))
+                                        navigate("/home");
+                                    }, 500)
+                                }
+                                else {
+                                    const div = document.getElementById("error")
+                                    div.innerHTML = "Cound not delete account please try later"
+                                }
                             }}>Eliminate Account</a>
                         </div>
                     </div>
@@ -82,6 +109,8 @@ export const Profile = () => {
                         <br />
                         <div>Re log in to see the changes</div>
                         <button onClick={submitEdit}>Submit</button>
+                        <div id="error"></div>
+
                     </div>
                 </div>
             </div>
