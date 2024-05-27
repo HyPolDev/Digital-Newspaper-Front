@@ -10,6 +10,8 @@ export const AdminPanel = () => {
     const rdxUser = useSelector(userData);
     const dispatch = useDispatch();
 
+    const token = rdxUser.credentials.token
+
     const [Data, setData] = useState(null)
 
     useEffect(() => {
@@ -41,13 +43,15 @@ export const AdminPanel = () => {
         const userName = localStorage.getItem("userNameEdited")
 
         const response = await editProfileCall(token, userName, profileEdited)
-
+        window.location.reload()
     }
 
     return (
         <>
             <div className="form centre" id="edit" style={{ position: "relative", height: 0, visibility: "hidden" }}>
                 <input type="text" name="userName" placeholder="User Name" onChange={(e) => inputHandler(e)} />
+                <br />
+                <input type="email" name="email" placeholder="User Email" onChange={(e) => inputHandler(e)} />
                 <br />
                 <input type="text" name="realName" placeholder="Real Name" onChange={(e) => inputHandler(e)} />
                 <br />

@@ -190,7 +190,6 @@ export const editProfileCall = async (token, userName, body) => {
         body: JSON.stringify(body)
     }
     try {
-        console.log(body);
         const response = await fetch(`${root}/users/${userName}`, options);
 
         const data = await response.json();
