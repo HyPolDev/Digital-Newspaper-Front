@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { getPostTypesCall } from '../../services/apiCalls';
 
 export const TypeSelector = () => {
 
-    const options = ["article", "analysis", "interview"]
+    const [Data, setData] = useState(null)
 
     const [SelectedRegion, setSelectedRegion] = useState('');
 
@@ -11,7 +12,19 @@ export const TypeSelector = () => {
         if (storedSelection) {
             setSelectedRegion(storedSelection);
         }
+        const fetchData = async () => {
+            const PostTypes = await getPostTypesCall()
+
+            setData({
+                postTypes: PostTypes.posts
+            })
+
+        }
+        fetchData()
+
     }, []);
+
+
 
     // Función para manejar el cambio de opción
     const handleOptionSelect = (event) => {
@@ -25,9 +38,9 @@ export const TypeSelector = () => {
         <div>
             <select value={SelectedRegion} onChange={handleOptionSelect}>
                 <option value="">Selecciona una tipo de notícia...</option>
-                {options.map((option) => (
-                    <option key={option} value={option}>
-                        {option}
+                {Data?.postTypes?.map((option) => (
+                    <option key={option._id} value={option.name}>
+                        {option.name}
                     </option>
                 ))}
             </select>
