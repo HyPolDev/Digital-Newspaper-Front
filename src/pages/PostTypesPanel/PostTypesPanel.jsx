@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { editProfileCall, getAllUsers, getPostTypesCall, updatePostTypesCall } from "../../services/apiCalls"
+import { createPostTypeCall, editProfileCall, getAllUsers, getPostTypesCall, updatePostTypesCall } from "../../services/apiCalls"
 import { userData } from "../../app/slices/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { RoleSelector } from "../../common/RoleSelector/RoleSelector";
@@ -46,8 +46,22 @@ export const PostTypesPanel = () => {
         window.location.reload()
     }
 
+    const submitNewPost = async () => {
+        const response = await createPostTypeCall(profileEdited, token)
+        window.location.reload()
+    }
     return (
         <>
+            <h4>Create a Post Type</h4>
+            <div className="center">
+                <input type="" name="name" placeholder="Type Name" onChange={(e) => inputHandler(e)} />
+                <br />
+                <input type="text" name="description" placeholder="Description" onChange={(e) => inputHandler(e)} />
+                <br />
+                <button onClick={submitNewPost}>Submit</button>
+                <div id="error"></div>
+            </div>
+
             <h4>Edit Post Type</h4>
             <div className="form centre" id="edit" style={{ position: "relative", height: 0, visibility: "hidden" }}>
                 <input type="text" name="name" placeholder="Type Name" onChange={(e) => inputHandler(e)} />
