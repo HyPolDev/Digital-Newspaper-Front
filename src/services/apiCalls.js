@@ -224,3 +224,100 @@ export const deleteProfileCall = async (token, userName) => {
         return error
     }
 }
+
+export const getPostTypesCall = async (token) => {
+    const options = {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`
+        }
+    }
+    try {
+        const response = await fetch(`${root}/post/types/`, options);
+
+        const data = await response.json();
+
+        if (!data.success) {
+            throw new Error(data.message)
+        }
+        return data
+    } catch (error) {
+        return error
+    }
+}
+
+export const deletePostTypesCall = async (token, typeName) => {
+    const options = {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`
+        }
+    }
+    try {
+        const response = await fetch(`${root}/post/types/${typeName}`, options);
+
+        const data = await response.json();
+
+        if (!data.success) {
+            throw new Error(data.message)
+        }
+        return data
+    } catch (error) {
+        return error
+    }
+}
+
+export const updatePostTypesCall = async (token, typeName, body) => {
+    const options = {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify(body)
+    }
+    try {
+        const response = await fetch(`${root}/post/types/${typeName}`, options);
+
+        const data = await response.json();
+
+        if (!data.success) {
+            throw new Error(data.message)
+        }
+        return data
+    } catch (error) {
+        return error
+    }
+}
+export const createPostTypeCall = async (params, token) => {
+
+    const options = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify(params)
+    };
+
+    try {
+        const response = await fetch(`${root}/post/types/create`, options);
+
+        const data = await response.json();
+
+        if (!data.success) {
+            throw new Error(data.message);
+        }
+
+        //SI NECESITASE TOKEN
+        if (data.message === "Token Error") {
+            dispatch(logout({ credentials: "" }))
+        }
+
+        return data;
+    } catch (error) {
+        return error;
+    }
+}
