@@ -61,6 +61,8 @@ export const Header = () => {
                                             navigate("/")
                                         }, 500)
                                     }} >Log out</a>
+                                    {role == "admin" || role == "superadmin" ?
+                                        <a href="#"><CLink path="/adminpanel" title="Admin Panel" /></a> : ""}
                                 </div>
                             </div>
                             </div>
