@@ -56,7 +56,7 @@ export const AdminPanel = () => {
                 <input type="text" name="realName" placeholder="Real Name" onChange={(e) => inputHandler(e)} />
                 <br />
                 <RoleSelector />
-                <div>Re log in to see the changes</div>
+                <br />
                 <button onClick={submitEdit}>Submit</button>
                 <div id="error"></div>
 
